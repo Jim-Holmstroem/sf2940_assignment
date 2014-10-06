@@ -5,10 +5,59 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 \begin{document}
 \generateheader{Assignment 1}
 
-\begin{exercise}{1.1} Title of the problem \\
+\begin{exercise}{1: 1.12.3.10} {\bf Intersection of sigma algebras}   \\
+    $\FF_1$ and $\FF_2$ are two sigma algebras of subsets of $\Omega$. Show
+    that
+    \begin{equation*}
+        \FF_1 \cap \FF_2
+    \end{equation*}
+    is a sigma algebra of subsets of $\Omega$.
 \end{exercise}
 \begin{solution}
 \end{solution}
 
+\begin{exercise}{2: 2.6.5.6} {\bf Use Chen's Lemma} \\
+    $X \in \distr{Po}{\lambda}$. Show that
+    \begin{equation}
+        \Expected[X^n] =
+        \lambda \sum\limits_{i=0}^{n-1} \binom{n-1}{k}\Expected[X^k].
+    \end{equation}
+    Aid: Use Chen's Lemma with suitable $H(x)$.
+\end{exercise}
+\begin{solution}
+    \begin{lemma}
+        \label{lemma:chen}  % TODO verify the correctness
+        {\bf Chen's Lemma} $X \in \distr{Po}{\lambda}$ and $H(x)$ is a bounded
+        Borel function, then
+        \begin{equation*}
+            \Expected[XH(X)] = \lambda\Expected[H(X+1)].
+        \end{equation*}
+    \end{lemma}
+\end{solution}
+
+\begin{exercise}{3: 3.8.3.1} Title of the problem \\
+\end{exercise}
+\begin{solution}
+\end{solution}
+
+\begin{exercise}{4: 3.8.3.14} Title of the problem \\
+\end{exercise}
+\begin{solution}
+\end{solution}
+
+\begin{exercise}{5: 4.7.2.4} Title of the problem \\
+\end{exercise}
+\begin{solution}
+\end{solution}
+
+\begin{exercise}{6: 5.8.3.11} Title of the problem \\
+\end{exercise}
+\begin{solution}
+\end{solution}
+
+\begin{exercise}{7: 7.6.1.1} Title of the problem \\
+\end{exercise}
+\begin{solution}
+\end{solution}
 %-----------------------
 \end{document}
