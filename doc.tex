@@ -23,7 +23,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \Expected[X^n] =
         \lambda \sum\limits_{k=0}^{n-1} \binom{n-1}{k}\Expected[X^k].
     \end{equation}
-    Aid: Use Chen's Lemma with suitable $H(x)$.
+    \textit{Aid:} Use Chen's Lemma with suitable $H(x)$.
 \end{exercise}
 \begin{solution}
     \begin{lemma}
@@ -63,10 +63,10 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \Expected[XY] =
         \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy.
     \end{equation}
-    \Answer: $\frac{2}{\lambda}$
+    \Answer $\frac{2}{\lambda}$
 
     (c) Find the marginal p.m.f. of $X$.
-    \Answer: $X\in\distr{Ge}{1/2}$
+    \Answer $X\in\distr{Ge}{1/2}$
 
     (d) Compute the marginal density of $Y$ here defined as
     \begin{equation}
@@ -75,14 +75,14 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
              0                                    &.
         \end{cases}
     \end{equation}
-    \Answer: $Y\in\distr{Exp}{\frac{1}{\lambda}}$
+    \Answer $Y\in\distr{Exp}{\frac{1}{\lambda}}$
 
     (e) Find
     \begin{equation}
         \gprob{\conditional{X}{Y}}{\conditional{k}{y}} =
         \Prob{\conditional{X=k}{Y=y}}, \, k\in\ZZ_{\ge 0}
     \end{equation}
-    \Answer: $\conditional{X}{Y} = y\in\distr{Po}{\lambda y}$.
+    \Answer $\conditional{X}{Y} = y\in\distr{Po}{\lambda y}$.
 
     (f) Compute $\Expected[\conditional{X}{Y=y}]$ and then $\Expected[XY]$ using
     double expectation. Compare your results with (b).
@@ -100,7 +100,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     \end{equation}
     Compute $\Expected[Y]$, $\Variance[Y]$, $\CoVariance(X, Y)$ and the p.m.f.
     of $Y$.
-    \Answer:
+    \Answer
     ${\Expected[Y]=\frac{3}{2}}$,
     ${\Variance[Y]=\frac{9}{4}}$,
     ${\CoVariance(X,Y)=-\frac{1}{8}}$, and
