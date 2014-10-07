@@ -8,9 +8,9 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 \begin{exercise}{1: 1.12.3.10} {\bf Intersection of sigma algebras}   \\
     $\FF_1$ and $\FF_2$ are two sigma algebras of subsets of $\Omega$. Show
     that
-    \begin{equation*}
+    \begin{equation}
         \FF_1 \cap \FF_2
-    \end{equation*}
+    \end{equation}
     is a sigma algebra of subsets of $\Omega$.
 \end{exercise}
 \begin{solution}
@@ -30,9 +30,10 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \label{lemma:chen}  % TODO verify the correctness
         \textbf{Chen's Lemma} $X \in \distr{Po}{\lambda}$ and $H(x)$ is a bounded
         Borel function, then
-        \begin{equation*}
+        \begin{equation}
+            \label{eq:chen}
             \Expected[XH(X)] = \lambda\Expected[H(X+1)].
-        \end{equation*}
+        \end{equation}
     \end{lemma}
 \end{solution}
 \pagebreak
@@ -42,45 +43,45 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     Let $(X, Y)$ is a bivariate random variable, where $X$ is discrete and $Y$
     is continuous. $(X, Y)$ has a joint probability mass - and density function
     given by
-    \begin{equation*}
+    \begin{equation}
         f_{X,Y}(k, y) = \begin{cases}
             \partdev{P(X=k, Y\le y)}{y} =
-                \lambda\frac{(\lambda y)^k}{k!}e^{-2\lambda y}
+            \lambda\frac{(\lambda y)^k}{k!}e^{-2\lambda y}
                     &,\, k\in\ZZ_{\ge 0},\, y\in [0, \infty) \\
             0       &.
         \end{cases}
-    \end{equation*}
+    \end{equation}
 
     (a) Check that
-    \begin{equation*}
+    \begin{equation}
         \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy =
-            \int\limits_0^\infty \sum\limits_{k=0}^\infty f_{X,Y}(k,y)dy = 1
-    \end{equation*}
+        \int\limits_0^\infty \sum\limits_{k=0}^\infty f_{X,Y}(k,y)dy = 1
+    \end{equation}
 
     (b) Compute the mixed moment $\Expected[XY]$ defined as
-    \begin{equation*}
+    \begin{equation}
         \Expected[XY] =
-            \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy.
-    \end{equation*}
+        \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy.
+    \end{equation}
     \Answer: $\frac{2}{\lambda}$
 
     (c) Find the marginal p.m.f. of $X$.
     \Answer: $X\in\distr{Ge}{1/2}$
 
     (d) Compute the marginal density of $Y$ here defined as
-    \begin{equation*}
+    \begin{equation}
         f_Y(y) = \begin{cases}
             \sum\limits_{k=0}^\infty f_{X,Y}(k,y) &, \, y\in[0,\infty) \\
              0                                    &.
         \end{cases}
-    \end{equation*}
+    \end{equation}
     \Answer: $Y\in\distr{Exp}{\frac{1}{\lambda}}$
 
     (e) Find
-    \begin{equation*}
+    \begin{equation}
         \gprob{\marginal{X}{Y}}{\marginal{k}{y}} =
-            \Prob{\marginal{X=k}{Y=y}}, \, k\in\ZZ_{\ge 0}
-    \end{equation*}
+        \Prob{\marginal{X=k}{Y=y}}, \, k\in\ZZ_{\ge 0}
+    \end{equation}
     \Answer: $\marginal{X}{Y} = y\in\distr{Po}{\lambda y}$.
 
     (f) Compute $\Expected[\marginal{X}{Y=y}]$ and then $\Expected[XY]$ using
@@ -90,7 +91,21 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 \end{solution}
 \pagebreak
 
-\begin{exercise}{4: 3.8.3.14} Title of the problem \\
+\begin{exercise}{4: 3.8.3.14} \textbf{Computing moments} \\
+    Let $(X,Y)$ be a bivariate r.v. such that
+    \begin{equation}
+        \marginal{Y}{X=x} \in \distr{Fs}{x},\quad
+        f_X(x)=3x^2,\quad
+        x\in [0, 1].
+    \end{equation}
+    Compute $\Expected[Y]$, $\Variance[Y]$, $\CoVariance(X, Y)$ and the p.m.f.
+    of $Y$.
+    \Answer:
+    ${\Expected[Y]=\frac{3}{2}}$,
+    ${\Variance[Y]=\frac{9}{4}}$,
+    ${\CoVariance(X,Y)=-\frac{1}{8}}$, and
+    $\gprob{Y}{k} = \frac{18}{(k+3)(k+2)(k+1)k},\, k \ge 1$.
+
 \end{exercise}
 \begin{solution}
 \end{solution}
