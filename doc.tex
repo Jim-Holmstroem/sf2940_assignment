@@ -17,18 +17,18 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 \end{solution}
 \pagebreak
 
-\begin{exercise}{2: 2.6.5.6} {\bf Use Chen's Lemma} \\
+\begin{exercise}{2: 2.6.5.6} \textbf{Use Chen's Lemma} \\
     $X \in \distr{Po}{\lambda}$. Show that
     \begin{equation}
         \Expected[X^n] =
-        \lambda \sum\limits_{i=0}^{n-1} \binom{n-1}{k}\Expected[X^k].
+        \lambda \sum\limits_{k=0}^{n-1} \binom{n-1}{k}\Expected[X^k].
     \end{equation}
     Aid: Use Chen's Lemma with suitable $H(x)$.
 \end{exercise}
 \begin{solution}
     \begin{lemma}
         \label{lemma:chen}  % TODO verify the correctness
-        {\bf Chen's Lemma} $X \in \distr{Po}{\lambda}$ and $H(x)$ is a bounded
+        \textbf{Chen's Lemma} $X \in \distr{Po}{\lambda}$ and $H(x)$ is a bounded
         Borel function, then
         \begin{equation*}
             \Expected[XH(X)] = \lambda\Expected[H(X+1)].
@@ -38,7 +38,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 \pagebreak
 
 \begin{exercise}{3: 3.8.3.1}
-    {\bf Joint Distributions \& Conditional Expectations } \\
+    \textbf{Joint Distributions \& Conditional Expectations} \\
     Let $(X, Y)$ is a bivariate random variable, where $X$ is discrete and $Y$
     is continuous. $(X, Y)$ has a joint probability mass - and density function
     given by
@@ -50,10 +50,41 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
             0       &.
         \end{cases}
     \end{equation*}
+
     (a) Check that
     \begin{equation*}
-        test
+        \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy =
+            \int\limits_0^\infty \sum\limits_{k=0}^\infty f_{X,Y}(k,y)dy = 1
     \end{equation*}
+
+    (b) Compute the mixed moment $\Expected[XY]$ defined as
+    \begin{equation*}
+        \Expected[XY] =
+            \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy.
+    \end{equation*}
+    \Answer: $\frac{2}{\lambda}$
+
+    (c) Find the marginal p.m.f. of $X$.
+    \Answer: $X\in\distr{Ge}{1/2}$
+
+    (d) Compute the marginal density of $Y$ here defined as
+    \begin{equation*}
+        f_Y(y) = \begin{cases}
+            \sum\limits_{k=0}^\infty f_{X,Y}(k,y) &, \, y\in[0,\infty) \\
+             0                                    &.
+        \end{cases}
+    \end{equation*}
+    \Answer: $Y\in\distr{Exp}{\frac{1}{\lambda}}$
+
+    (e) Find
+    \begin{equation*}
+        \gprob{\marginal{X}{Y}}{\marginal{k}{y}} =
+            \Prob{\marginal{X=k}{Y=y}}, \, k\in\ZZ_{\ge 0}
+    \end{equation*}
+    \Answer: $\marginal{X}{Y} = y\in\distr{Po}{\lambda y}$.
+
+    (f) Compute $\Expected[\marginal{X}{Y=y}]$ and then $\Expected[XY]$ using
+    double expectation. Compare your results with (b).
 \end{exercise}
 \begin{solution}
 \end{solution}

@@ -16,16 +16,26 @@
 \newcommand{\Poi}[2]{e^{-{#1}}\frac{{#1}^{#2}}{{#2}!}}
 %\def{\LogLikelihood}{\ell}
 %\log
-\newcommand{\prob}[1]{p{(#1)}}
-\newcommand{\cprob}[2]{\prob{\left. #1 \middle\vert #2 \right.}}
+
+\newcommand{\marginal}[2]{\left. #1 \middle\vert #2 \right.}
+
+\newcommand{\gprob}[2]{p_{#1} (#2)}
+\newcommand{\gProb}[2]{P_{#1} (#2)}
+\newcommand{\prob}[1]{\gprob{}{#1}}
+\newcommand{\Prob}[1]{\gprob{}{#1}}
+\newcommand{\cprob}[2]{\prob{\marginal{#1}{#2}}}
+\newcommand{\cProb}[2]{\Prob{\marginal{#1}{#2}}}
+\newcommand{\gcprob}[3]{\gprob{#1}{\marginal{#2}{#3}}}
+
 \newcommand{\ndist}[2]{\mathcal{N}{\left(#1, #2\right)}}
 
 \newcommand{\Ordo}[1]{\mathcal{O}{\left(#1\right)}}
 
-\newcommand{\interval}[2]{
-          \left[#1, #2\right]
-      }
+\newcommand{\interval}[2]{\left[#1, #2\right]}
+
 \def\eqdef{\buildrel\triangle\over =}
+
+\def\Answer{\textit{Answer}}
 
 \def\Variance{{\rm Var}\,}
 \def\CoVariance{{\rm Cov}\,}
