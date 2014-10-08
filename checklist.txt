@@ -1,0 +1,5 @@
+* frontmatter
+* one page/sheet
+* define explain notation
+* easy to follow computations and reasoning
+* staple everything together
