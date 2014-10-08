@@ -40,7 +40,8 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \end{equation}
     \end{identity}
 
-    TODO introduce $\FF$ is this on the right level? corner casees?
+    TODO introduce $\FF$ is this on the right level? corner casees? compare to
+    the general case %\Cap_cA_c (book?)
     \begin{equation}
         A, B \in \AA \stackrel{\eqref{eq:complement}}{\Longrightarrow}
         A^c, B^c \in \AA \stackrel{\eqref{eq:union}}{\Longrightarrow}
@@ -65,6 +66,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 \begin{exercise}{2: 2.6.5.6} \textbf{Use Chen's Lemma} \\
     $X \in \distr{Po}{\lambda}$. Show that
     \begin{equation}
+        \label{eq:expectedtopowern}
         \Expected[X^n] =
         \lambda \sum\limits_{k=0}^{n-1} \binom{n-1}{k}\Expected[X^k].
     \end{equation}
@@ -83,6 +85,35 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
             \Expected[XH(X)] = \lambda\Expected[H(X+1)].
         \end{equation}
     \end{lemma}
+    \begin{identity}[Binomial identity]
+        \label{id:binomial}
+        \begin{equation}
+            \label{eq:binomial}
+            (x+y)^n = \sum\limits_{k=0}^n \binom{n}{k} x^ky^{n-k}
+        \end{equation}
+        \begin{equation}
+            \label{eq:binomial1}
+            (x+1)^n = \sum\limits_{k=0}^n \binom{n}{k} x^k
+        \end{equation}
+    \end{identity}
+
+    We choose $H(X) = X^{n-1}$ to show \eqref{eq:expectedtopowern}.
+
+    \begin{equation}
+        \Expected[X^n] = \evaluatedat{\Expected[XH(X)]}{H(X)=X^{n-1}}
+        \stackrel{\eqref{lemma:chen}}{=}
+        \lambda \evaluatedat{\Expected[H(X+1)]}{H(X)=X^{n-1}} =
+        \lambda \Expected[(X+1)^{n-1}]
+    \end{equation}
+    \begin{equation}
+        \lambda \Expected[(X+1)^{n-1}] \stackrel{\eqref{eq:binomial1}}{=}
+        \lambda \Expected
+            \left[
+                \sum\limits_{k=0}^{n-1} \binom{n-1}{k}X^k
+            \right] =
+        \left\{\Expected \text{linear operator}\right\} =
+        \lambda\sum\limits_{k=0}^{n-1} \binom{n-1}{k}\Expected[X^k] \qed
+    \end{equation}
 \end{solution}
 \pagebreak
 
@@ -99,7 +130,6 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
             0       &.
         \end{cases}
     \end{equation}
-
     \begin{enumerate}
         \item Check that
             \begin{equation}
