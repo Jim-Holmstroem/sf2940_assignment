@@ -1,0 +1,4 @@
+* E[E[.]]
+* How to properly remove an condition Y|X-> Y
+* how to show equidistribution
+

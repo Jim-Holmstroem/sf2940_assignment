@@ -1,24 +1,28 @@
-from sympy import *
+from __future__ import division, print_function
+
+from sympy import S, apart, summation
+
 
 k = S('k')
+k_domain = (k, 1, 00)
 
-pfrac=18/((k+1)*(k+2)*(k+3))
+f_Y = 18/((k+1)*(k+2)*(k+3))
+
 
 print(
-    "{}={}".format(
-        pfrac,
-        apart(pfrac)
-    )
+    " = ".join([
+        f_Y,
+        apart(f_Y)
+    ])
 )
 
-#R1, R2, R3 = S('R1 R2 R3'.split())
-#
-#print(
-#    solve(
-#        [  # FIXME seems to be wrong, must have missed the equation system
-#            Eq(18, 6*R1+3*R2+2*R3), #constant
-#            Eq( 0, 6*R1+4*R2+3*R3), #k
-#            Eq( 0,   R1+  R2+  R3), #k^2
-#        ]
-#    )
-#)
+EY = summation(
+    f_Y,
+    k_domain
+)
+
+print(
+    "E[Y] = {}".format(
+        EY
+    )
+)

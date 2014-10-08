@@ -2,3 +2,6 @@
 *.aux
 *.out
 .ropeproject/
+*.swp
+*.swo
+*.pyc

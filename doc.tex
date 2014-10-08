@@ -14,6 +14,15 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     is a sigma algebra of subsets of $\Omega$.
 \end{exercise}
 \begin{solution}
+    \begin{definition}[Sigma algebra]
+        A collection \AA\, of subsets of $\Omega$ is called a \textbf{sigma
+        algebra} if it satisfies.
+        \begin{enumerate}
+            \item test
+            \item test
+        \end{enumerate}
+    \end{definition}
+
 %    definition of algebra 1.3.1 (what is "sigma"?)
 %    De morgan, "closure under union" and that A^c\in A
 %    "if an algebra is finite it's also an sigma algebra"
@@ -39,9 +48,9 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     %http://kth-primo.hosted.exlibrisgroup.com/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=KTH_LMSMILL.b10095585&indx=1&recIds=KTH_LMSMILL.b10095585&recIdxs=0&elementId=0&renderMode=poppedOut&displayMode=full&frbrVersion=&dscnt=0&frbg=&scp.scps=scope%3A%28KTH%29%2Cprimo_central_multiple_fe&tab=default_tab&dstmp=1412688608005&srt=rank&mode=Basic&&dum=true&vl%28freeText0%29=poisson%20approximation%20barbour&vid=KTH&gathStatIcon=true
     %H(X) = X^{n-1} is not bounded (or?) and the solution "comes close" but not
     %there
-    \begin{lemma}
+    \begin{lemma}[Chen's Lemma]
         \label{lemma:chen}  % TODO verify the correctness
-        \textbf{Chen's Lemma} $X \in \distr{Po}{\lambda}$ and $H(x)$ is a bounded
+        $X \in \distr{Po}{\lambda}$ and $H(x)$ is a bounded
         Borel function, then
         \begin{equation}
             \label{eq:chen}
@@ -65,49 +74,62 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \end{cases}
     \end{equation}
 
-    (a) Check that
-    \begin{equation}
-        \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy =
-        \int\limits_0^\infty \sum\limits_{k=0}^\infty f_{X,Y}(k,y)dy = 1
-    \end{equation}
+    \begin{enumerate}
+        \item Check that
+            \begin{equation}
+                \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy =
+                \int\limits_0^\infty \sum\limits_{k=0}^\infty f_{X,Y}(k,y)dy = 1
+            \end{equation}
 
-    (b) Compute the mixed moment $\Expected[XY]$ defined as
-    \begin{equation}
-        \Expected[XY] =
-        \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy.
-    \end{equation}
-    \Answer $\frac{2}{\lambda}$
+        \item Compute the mixed moment $\Expected[XY]$ defined as
+            \begin{equation}
+                \Expected[XY] =
+                \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy.
+            \end{equation}
+            \Answer $\frac{2}{\lambda}$
 
-    (c) Find the marginal p.m.f. of $X$.
-    \Answer $X\in\distr{Ge}{\frac{1}{2}}$
+        \item Find the marginal p.m.f. of $X$.
+            \Answer $X\in\distr{Ge}{\frac{1}{2}}$
 
-    (d) Compute the marginal density of $Y$ here defined as
-    \begin{equation}
-        f_Y(y) = \begin{cases}
-            \sum\limits_{k=0}^\infty f_{X,Y}(k,y) &, \, y\in[0,\infty) \\
-             0                                    &.
-        \end{cases}
-    \end{equation}
-    \Answer $Y\in\distr{Exp}{\frac{1}{\lambda}}$
+        \item Compute the marginal density of $Y$ here defined as
+            \begin{equation}
+                f_Y(y) = \begin{cases}
+                    \sum\limits_{k=0}^\infty f_{X,Y}(k,y) &, \, y\in[0,\infty) \\
+                     0                                    &.
+                \end{cases}
+            \end{equation}
+            \Answer $Y\in\distr{Exp}{\frac{1}{\lambda}}$
 
-    (e) Find
-    \begin{equation}
-        \gprob{\conditional{X}{Y}}{\conditional{k}{y}} =
-        \Prob{\conditional{X=k}{Y=y}}, \, k\in\ZZ_{\ge 0}
-    \end{equation}
-    \Answer $\conditional{X}{Y} = y\in\distr{Po}{\lambda y}$.
+        \item Find
+            \begin{equation}
+                \gprob{\conditional{X}{Y}}{\conditional{k}{y}} =
+                \Prob{\conditional{X=k}{Y=y}}, \, k\in\ZZ_{\ge 0}
+            \end{equation}
+            \Answer $\conditional{X}{Y} = y\in\distr{Po}{\lambda y}$.
 
-    (f) Compute $\Expected[\conditional{X}{Y=y}]$ and then $\Expected[XY]$ using
-    double expectation. Compare your results with (b).
+        \item Compute $\Expected[\conditional{X}{Y=y}]$ and then
+            $\Expected[XY]$ using double expectation.
+            Compare your results with (b).
+
+    \end{enumerate}
 \end{exercise}
 \begin{solution}
-    (a) %brute force from c/d ? discuss the difftrans sumint=intsum (when it's
+    \begin{enumerate}
+        \item
+        \item
+        \item
+        \item
+        \item
+        \item
+        \item
+    \end{enumerate}
+    %(a) %brute force from c/d ? discuss the difftrans sumint=intsum (when it's
         %valid that is)
-    (b)
-    (c) %beta 7.5.40
-    (d) %(almost) inverse taylor of e^x
-    (e)
-    (f)
+    %(b)
+    %(c) %beta 7.5.40
+    %(d) %(almost) inverse taylor of e^x
+    %(e)
+    %(f)
 \end{solution}
 \pagebreak
 
@@ -132,7 +154,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 \end{solution}
 \pagebreak
 
-\begin{exercise}{5: 4.7.2.4} Equidistribution \\
+\begin{exercise}{5: 4.7.2.4} \textbf{Equidistribution} \\
     Let $\left\{{X_k}\right\}_{k=1}^n$ be independent and identically
     distributed. Furthermore $\left\{{a_k}\right\}_{k=1}^n$, $a_k \in \RR$. Set
     \begin{equation}
@@ -181,6 +203,8 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     properties of $\|X\|$ as defined in (LN 7.3).
 \end{exercise}
 \begin{solution}
+    % http://en.wikipedia.org/wiki/Convergence_of_random_variables#Convergence_in_mean
+    % listed as one of the properties for L_p
 \end{solution}
 \pagebreak
 
