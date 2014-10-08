@@ -17,12 +17,17 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     \begin{definition}[Sigma algebra]
         A collection \AA\, of subsets of $\Omega$ is called a \textbf{sigma
         algebra} if it satisfies.
-        \begin{enumerate}
-            \item test
-            \item test
-        \end{enumerate}
+        \begin{equation}
+            \Omega \in \AA
+        \end{equation}
+        \begin{equation}
+            A\in \AA \Rightarrow A^c \in \AA
+        \end{equation}
+        \begin{equation}
+            A, B\in \AA \Rightarrow A\cup B \in \AA
+        \end{equation}
+        That it is non-empty and has closure under both complement and union.
     \end{definition}
-
 %    definition of algebra 1.3.1 (what is "sigma"?)
 %    De morgan, "closure under union" and that A^c\in A
 %    "if an algebra is finite it's also an sigma algebra"
@@ -81,7 +86,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
                 \int\limits_0^\infty \sum\limits_{k=0}^\infty f_{X,Y}(k,y)dy = 1
             \end{equation}
 
-        \item Compute the mixed moment $\Expected[XY]$ defined as
+        \item \label{itm:b} Compute the mixed moment $\Expected[XY]$ defined as
             \begin{equation}
                 \Expected[XY] =
                 \sum\limits_{k=0}^\infty \int\limits_0^\infty f_{X,Y}(k,y)dy.

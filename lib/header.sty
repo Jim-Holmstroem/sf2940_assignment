@@ -39,10 +39,13 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \newtheorem{corollary}[theorem]{Corollary}
 
 \newenvironment{exercise}[2][Exercise]{
+    \stepcounter{section}
     \begin{trivlist}
         \item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}{
     \end{trivlist}
 }
+\numberwithin{equation}{section}
+% TODO pagebreak after solution...
 
 \newcommand{\NN}{\ensuremath{\mathbb{N}}}
 \newcommand{\ZZ}{\ensuremath{\mathbb{Z}}}
