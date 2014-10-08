@@ -32,11 +32,14 @@ linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
 \newtheorem*{solution}{Solution}
 \newtheorem*{remark}{Remark}
 
-\newtheorem{theorem}{theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
+
+\newtheorem{theorem}{equation}[section]  % counter=equation so that the
+% identification numbers do not collide
+\newtheorem{lemma}[equation]{Lemma}
+\newtheorem{definition}[equation]{Definition}
+\newtheorem{proposition}[equation]{Proposition}
+\newtheorem{corollary}[equation]{Corollary}
+\newtheorem{identity}[equation]{Identity}
 
 \newenvironment{exercise}[2][Exercise]{
     \stepcounter{section}
