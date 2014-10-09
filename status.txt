@@ -8,7 +8,7 @@
  c. OK. On paper, If I fix (a)
  d. OK. On paper.
  e. Almost OK. On paper, needs motivation for XY = X|Y*Y step
- f.
+ f. NO (I need double expectation)
 
 4E. OK on paper
 Var. OK on paper
@@ -18,7 +18,6 @@ f. OK on paper
 5. Almost OK. Needs to write down the prereqs and be careful on what to use
 when.
 
-6. NO. On it's way.
+6. NO.
 
-7. NO. but found it to be true according to wikipedia
-
+7. OK.
