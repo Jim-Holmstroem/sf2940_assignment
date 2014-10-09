@@ -356,9 +356,32 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     properties of $\|X\|$ as defined in (LN 7.3).
 \end{exercise}
 \begin{solution}
-    FS12.2 first "if"-statement but for 2 instead of without... (close)
-    % http://en.wikipedia.org/wiki/Convergence_of_random_variables#Convergence_in_mean
-    % listed as one of the properties for L_p
+    From the definition of mean square convergence:
+    \begin{equation}
+        \label{eq:xconv}
+        X_n \StackConverges{2} X \Rightarrow
+        \Expected[\|X_n-X\|^2] \rightarrow 0,
+    \end{equation}
+    \begin{equation}
+        \label{eq:yconv}
+        Y_n \StackConverges{2} Y \Rightarrow
+        \Expected[\|Y_n-Y\|^2] \rightarrow 0.
+    \end{equation}
+    Via the parallelogram rule and \eqref{eq:xconv}, \eqref{eq:yconv}
+    \begin{align}  % TODO explain parallelogram rule
+        \label{eq:main7}
+        \Expected[\|(aX_n+bY_n)-(aX+bY)\|^2] &=
+        \Expected[\|a(X_n-X) + b(Y_n-Y)\|^2] \nonumber \\ &\le
+        2a^2\Expected[\|X_n-X\|^2]+2b^2\Expected[\|Y_n-Y\|^2] \nonumber \\ &
+        \rightarrow 0
+    \end{align}
+    Again from the definition of mean square convergence and
+    \eqref{eq:main7} we get % TODO is this correct (use thm instead?)
+    \begin{equation}
+        \Expected[\|(aX_n+bY_n)-(aX+bY)\|^2] \rightarrow 0 \Rightarrow
+        aX_n+bY_n \StackConverges{2} aX+bY \qed
+    \end{equation}
+    % TODO check 7.3 for inconsistencies
 \end{solution}
 \pagebreak
 
