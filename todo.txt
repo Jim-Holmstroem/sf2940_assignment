@@ -1,4 +1,2 @@
 * E[E[.]]
-* How to properly remove an condition Y|X-> Y
-* how to show equidistribution
-
+* verify that we have considered "0 elsewhere" everywhere

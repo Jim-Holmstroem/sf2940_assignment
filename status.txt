@@ -1,0 +1,24 @@
+1. Almost OK. Make it "higher" to work on sigma algebras instead of elements of thereof
+(or?)
+
+2. OK. but is it an bounded borel function?
+
+3a. Almost OK. it's a lambda to much to be =1
+ b. Almost OK. 6 /= 8 in the last special sum..
+ c. OK. On paper, If I fix (a)
+ d. OK. On paper.
+ e. Almost OK. On paper, needs motivation for XY = X|Y*Y step
+ f.
+
+4E. OK on paper
+Var. OK on paper
+Cov. OK (probably)
+f. OK on paper
+
+5. Almost OK. Needs to write down the prereqs and be careful on what to use
+when.
+
+6. NO. On it's way.
+
+7. NO. but found it to be true according to wikipedia
+
