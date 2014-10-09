@@ -227,8 +227,31 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         3\int\limits_{q=0}^1 (-q^3+3 q^2-3 q+1) q^{k-1} dq \nonumber \\ & =
         3\int\limits_{q=0}^1 -q^{k+2}+3q^{k+1}-3q^k+q^{k-1} dq \nonumber \\ & =
         3\left(-\frac{1}{k+3}+\frac{3}{k+2}-\frac{3}{k+1}+\frac{1}{k}\right) \nonumber \\ & =
-        \frac{18}{(k+3)(k+2)(k+1)k}
+        \frac{18}{(k+3)(k+2)(k+1)k}, k \ge 1
     \end{align} %\nonumber \\ & =
+
+    \begin{align}
+        \Expected[Y] & \eqdef \sum\limits_{k=1}^\infty k
+        \frac{18}{(k+3)(k+2)(k+1)k} =
+        \sum\limits_{k=1}^\infty \frac{18}{(k+3)(k+2)(k+1)} \nonumber \\ & =
+        \frac{3}{2}
+    \end{align}
+    \begin{align}
+        \Variance[Y] & \eqdef \sum\limits_{k=1}^\infty (k - \Expected[Y])^2
+        \frac{18}{(k+3)(k+2)(k+1)k} =
+        \frac{9}{4}
+    \end{align}
+    \begin{equation}
+        \Expected[P] = \int\limits_{p=0}^1 3p^2dp = \frac{3}{4}
+    \end{equation}
+    \begin{align}
+        \CoVariance(P, Y) & \eqdef \int\sum
+            (k - \Expected[Y])(p - \Expected[P])
+        ... =
+        -\frac{1}{8}
+    \end{align}
+
+
 
 \end{solution}
 \pagebreak
