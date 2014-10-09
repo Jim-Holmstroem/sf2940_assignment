@@ -225,6 +225,38 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     \end{equation}
 \end{exercise}
 \begin{solution}
+    TODO needs background identies and theorems for all the steps
+    forall X exists unq varphiX
+    uniqness of varphiX ( => varphiX = varphiXk)
+    varphi sum
+    varphi scale
+    Xk is all identically distributed
+    product is reorderable due to (countable?) commutativity and associative of
+    multiplication
+    anything more?
+
+    \begin{identity}[Permuted coefficients]
+        \label{thm:permutedcoeffs}
+        $\{X_k\}, X$ is independent and identically distributed.
+        $\sigma$ is any permutation.
+        \begin{equation}
+            \varphi_{\left(\sum\limits_{k\in K}a_{\sigma(k)} X_k\right)}(t) =
+            \prod\limits_{k\in K} \varphi_X (a_k t) =
+            \varphi_{\left(\sum\limits_{k\in K}a_{k} X_k\right)}(t)
+        \end{equation}
+    \end{identity}
+    \begin{proof}
+        \begin{equation}
+            \varphi TODO
+            %\prod\limits_{k\in K} \varphi_{X_k}(a_k t) =
+            % TODO remember than only the coeffs are reordered sigma(K) is thus not
+            % the right thing to write but a_\sigma(k)X_k
+        \end{equation}
+    \end{proof}
+
+    \begin{equation}
+        \varphi_{Y_1} = \varphi_{\left(\sum\limits_k a_k X_k\right)}
+    \end{equation}
 \end{solution}
 \pagebreak
 
