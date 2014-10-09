@@ -198,23 +198,38 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 %------------------------------------------------------------------------------
 
 \begin{exercise}{4: 3.8.3.14} \textbf{Computations on a distribution} \\
-    Let $(X,Y)$ be a bivariate r.v. such that
+    Let $(P,Y)$ be a bivariate r.v. such that
     \begin{equation}
-        \conditional{Y}{X=x} \in \distr{Fs}{x},\quad
-        f_X(x)=3x^2,\quad
-        x\in [0, 1].
+        \conditional{Y}{P=p} \in \distr{Fs}{p},\quad
+        f_P(p)=3p^2,\quad
+        p\in [0, 1].
     \end{equation}
-    Compute: $\Expected[Y]$, $\Variance[Y]$, $\CoVariance(X, Y)$ and the p.m.f.
+    Compute: $\Expected[Y]$, $\Variance[Y]$, $\CoVariance(P, Y)$ and the p.m.f.
     of $Y$.
     \Answer
     ${\Expected[Y]=\frac{3}{2}}$,
     ${\Variance[Y]=\frac{9}{4}}$,
-    ${\CoVariance(X,Y)=-\frac{1}{8}}$, and
+    ${\CoVariance(P,Y)=-\frac{1}{8}}$, and
     $\gprob{Y}{k} = \frac{18}{(k+3)(k+2)(k+1)k},\, k \ge 1$.
 
 \end{exercise}
 \begin{solution}
-    % TODO book3.5 does this stuff
+
+    \begin{align}
+        \gprob{Y}{k} &= \int\limits_{p=0}^1 \gprob{Y|P=p}{k} df_P(p) =
+        3\int\limits_{p=0}^1 p^3 (1-p)^{k-1}dp = \left\{
+            \begin{cases}
+                q   & = 1-p \\
+                dq  & = -dp
+            \end{cases}
+        \right\} \nonumber \\ & =
+        3\int\limits_{q=0}^1 (1-q)^3 q^{k-1} dq =
+        3\int\limits_{q=0}^1 (-q^3+3 q^2-3 q+1) q^{k-1} dq \nonumber \\ & =
+        3\int\limits_{q=0}^1 -q^{k+2}+3q^{k+1}-3q^k+q^{k-1} dq \nonumber \\ & =
+        3\left(-\frac{1}{k+3}+\frac{3}{k+2}-\frac{3}{k+1}+\frac{1}{k}\right) \nonumber \\ & =
+        \frac{18}{(k+3)(k+2)(k+1)k}
+    \end{align} %\nonumber \\ & =
+
 \end{solution}
 \pagebreak
 
