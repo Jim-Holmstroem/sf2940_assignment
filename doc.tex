@@ -341,8 +341,6 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 
         \item
 
-        \item
-
     \end{enumerate}
     %(a) %brute force from c/d ? discuss the difftrans sumint=intsum (when it's
         %valid that is)
@@ -372,8 +370,9 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     $\gprob{Y}{k} = \frac{18}{(k+3)(k+2)(k+1)k},\, k \ge 1$.
 
 \end{exercise}
-\begin{solution}
 
+
+\begin{solution}
     \begin{align}
         \gprob{Y}{k} &= \int\limits_{p=0}^1 \gprob{Y|P=p}{k} df_P(p) =
         3\int\limits_{p=0}^1 p^3 (1-p)^{k-1}dp = \left\{
@@ -389,28 +388,67 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \frac{18}{(k+3)(k+2)(k+1)k}, k \ge 1
     \end{align} %\nonumber \\ & =
 
+    Setting up Python with Sympy to leverage some of the algebra \\
+    \begin{lstlisting}[frame=single]
+        from sympy import *
+        p, q, k = S('p k q'.split())
+    \end{lstlisting}
+
+    \begin{lstlisting}[frame=single]
+        EY = summation(
+            18/((k+3)*(k+2)*(k+1)),
+            (k, 1, oo)
+        )
+        print(EY) # 3/2
+    \end{lstlisting}
+    From the definition of $\Expected$ we have
     \begin{align}
         \Expected[Y] & \eqdef \sum\limits_{k=1}^\infty k
         \frac{18}{(k+3)(k+2)(k+1)k} =
         \sum\limits_{k=1}^\infty \frac{18}{(k+3)(k+2)(k+1)} \nonumber \\ & =
         \frac{3}{2}
     \end{align}
+    \begin{lstlisting}[frame=single]
+        VarY = summation(
+            18*(k-EY)**2/((k+3)*(k+2)*(k+1)),
+            (k, 1, oo)
+        )
+        print(VarY) # 9/4
+    \end{lstlisting}
+    From the definition of $\Variance$ we have
     \begin{align}
         \Variance[Y] & \eqdef \sum\limits_{k=1}^\infty (k - \Expected[Y])^2
         \frac{18}{(k+3)(k+2)(k+1)k} =
         \frac{9}{4}
     \end{align}
+
     \begin{equation}
         \Expected[P] = \int\limits_{p=0}^1 3p^2dp = \frac{3}{4}
     \end{equation}
+%    \begin{lstlisting}[frame=single]
+%        EP = Rational(3, 4)
+%        CovXY = integrate(
+%            summation(
+%                18*(k-EY)*(p-EP)*3*p**2/((k+3)*(k+2)*(k+1)),
+%                (k, 1, oo),
+%            ),
+%            (p, 0, 1)
+%        )
+%        print(CovXY) # -1/8
+%    \end{lstlisting}
+
+    From the definition of \CoVariance
     \begin{align}
-        \CoVariance(P, Y) & \eqdef \int\sum
-            (k - \Expected[Y])(p - \Expected[P])
-        ... =
+        \CoVariance(P, Y) & \eqdef 
+            \int\sum (k - \Expected[Y])(p - \Expected[P]) p_{YP}(y, p)%\frac{18\cdot3p^2}{(k+3)(k+2)(k+1)k}
+            \nonumber \\& =
+            \int\sum (k - \Expected[Y])(p - \Expected[P]) p_{Y|P}(y, p)f_p(p)%\frac{18\cdot3p^2}{(k+3)(k+2)(k+1)k}
+            \nonumber \\& =
+             \int\sum (k - \Expected[Y])(p - \Expected[P]) p(1-p)^{k-1} \cdot
+             3p^2
+        = ... = % TODO
         -\frac{1}{8}
     \end{align}
-
-
 
 \end{solution}
 \pagebreak
@@ -433,16 +471,16 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     \end{equation}
 \end{exercise}
 \begin{solution}
-    TODO needs background identies and theorems for all the steps
-    forall X exists unq varphiX
-    uniqness of varphiX ( => varphiX = varphiXk)
-    varphi sum
-    varphi scale
-    Xk is all identically distributed
-    product is reorderable due to (countable?) commutativity and associative of
-    multiplication
-    anything more?
-    TODO compare with FS8.3
+%    TODO needs background identies and theorems for all the steps
+%    forall X exists unq varphiX
+%    uniqness of varphiX ( => varphiX = varphiXk)
+%    varphi sum
+%    varphi scale
+%    Xk is all identically distributed
+%    product is reorderable due to (countable?) commutativity and associative of
+%    multiplication
+%    anything more?
+%    TODO compare with FS8.3
 
     \begin{identity}[Permuted coefficients]
         \label{thm:permutedcoeffs}
@@ -455,12 +493,15 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \end{equation}
     \end{identity}
     \begin{proof}
+        Holds directly from the identities
         \begin{equation}
-            \varphi TODO
-            %\prod\limits_{k\in K} \varphi_{X_k}(a_k t) =
-            % TODO remember than only the coeffs are reordered sigma(K) is thus not
-            % the right thing to write but a_\sigma(k)X_k
+            \varphi_{\sum X_k} = \prod \varphi_{X_k}
         \end{equation}
+        \begin{equation}
+            \varphi_{a X}(t) = \varphi_{X}(at)
+        \end{equation}
+        and the fact that one can reorder $\prod$ and uniqueness of $\varphi$.
+
     \end{proof}
 
     Using Theorem \ref{thm:permutedcoeffs} with
@@ -472,7 +513,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \varphi_{\left(\sum\limits_k a_{n-k+1} X_k\right)} =
         \varphi_{Y_2}
     \end{equation}
-    And with uniqueness theorem of blablabla we have
+    And with the uniqueness theorem we have
     \begin{equation}
         \left\{\varphi_{Y_1} = \varphi_{Y_2}\right\} \Rightarrow
         \left\{Y_1 \Equidistributed Y_2\right\} \qed
