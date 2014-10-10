@@ -143,15 +143,15 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
         \lambda \evaluatedat{\Expected[H(X+1)]}{H(X)=X^{n-1}} =
         \lambda \Expected[(X+1)^{n-1}]
     \end{equation}
-    \begin{equation}
-        \lambda \Expected[(X+1)^{n-1}] \stackrel{\eqref{eq:binomial1}}{=}
+    \begin{align}
+        \lambda \Expected[(X+1)^{n-1}] & \stackrel{\eqref{eq:binomial1}}{=}
         \lambda \Expected
             \left[
                 \sum\limits_{k=0}^{n-1} \binom{n-1}{k}X^k
             \right] =
-        \left\{\Expected \text{linear operator}\right\} =
+        \left\{\Expected \text{linear operator}\right\} \nonumber \\ & =
         \lambda\sum\limits_{k=0}^{n-1} \binom{n-1}{k}\Expected[X^k] \qed
-    \end{equation}
+    \end{align}
 \end{solution}
 \pagebreak
 
@@ -210,6 +210,21 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     \end{enumerate}
 \end{exercise}
 \begin{solution}
+    First note that events with $0$ probability is dealt with via using certain domains
+    when integrating and such, trivial to perform and trivial to append it back on but left out for
+    brevity.\\
+    Using the inverse of the Taylor expansion for $e^{(.)}$ for $k$ as a
+    function of $\lambda y$ we get the marginalized distribution
+    \begin{equation}
+        \label{eq:firstsum}
+        f_Y(y) = \sum\limits_{k=0}^\infty
+            \lambda \frac{(\lambda y)^k}{k!}e^{-2\lambda y} =
+            \lambda e^{-\lambda y}
+    \end{equation}
+    \begin{equation}
+        f_X(x) = \int\limits_{y=0}^\infty
+            \lambda \frac{(\lambda y)^k}{k!}e^{-2\lambda y} =
+    \end{equation}
     \begin{enumerate}
         % TODO show (c) and (d) and since those are distributions (a) follows
         \item
