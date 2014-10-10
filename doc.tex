@@ -17,40 +17,75 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 \end{exercise}
 \begin{solution}
     \begin{definition}[Sigma algebra]
-        A collection \AA\, of subsets of $\Omega$ is called a \textbf{sigma
+        $\FF \subseteq \PP(\Omega)$ is called a \textbf{sigma
         algebra} if it satisfies.
         \begin{equation}
             \label{eq:nonempty}
-            \Omega \in \AA
+            \Omega \in \FF
         \end{equation}
         \begin{equation}
             \label{eq:complement}
-            A\in \AA \Rightarrow A^c \in \AA
+            A\in \FF \Rightarrow A^c \in \FF
         \end{equation}
         \begin{equation}
             \label{eq:union}
-            A, B\in \AA \Rightarrow A\cup B \in \AA
+            A, B\in \FF \Rightarrow A\cup B \in \FF
         \end{equation}
         In other words, non-empty\eqref{eq:nonempty} and has closure under both
-        complement\eqref{eq:complement} and union\eqref{eq:complement}.
+        complement\eqref{eq:complement} and union\eqref{eq:union}.
     \end{definition}
-    \begin{identity}[De Morgan's rule]
-        \label{id:demorgan}
-        \begin{equation}
-            \label{eq:demorgan}
-            A \cap B = (A^c \cup B^c)^c
-        \end{equation}
-    \end{identity}
 
-    TODO introduce $\FF$ is this on the right level? corner casees? compare to
-    the general case %\Cap_cA_c (book?)
+    Verify the sigma algebra axioms with the universe $\Omega$.\\
+
+    By an alternative definition of intersection we have (which holds for any
+    set)
     \begin{equation}
-        A, B \in \AA \stackrel{\eqref{eq:complement}}{\Longrightarrow}
-        A^c, B^c \in \AA \stackrel{\eqref{eq:union}}{\Longrightarrow}
-        (A^c \cup B^c) \in \AA \stackrel{\eqref{eq:demorgan}}{\Longrightarrow}
-        (A \cap B)^c \in \AA \stackrel{\eqref{eq:complement}}{\Longrightarrow}
-        A \cap B \in \AA \qed
+        \label{eq:altintersection}
+        A \in \FF_1\wedge A \in \FF_2 = A \in \FF_1, \FF_2 \Leftrightarrow A \in \FF_1 \cap \FF_2
     \end{equation}
+
+    Axiom \ref{eq:nonempty}:
+    Just applying \eqref{eq:altintersection} directly and using the fact that
+    $\FF_1$ and $\FF_2$ is sigma algebras.
+    \begin{equation}
+        \Omega \in \FF_1, \FF_2 \Rightarrow \Omega \in \FF_1 \cap \FF_2
+    \end{equation}
+
+    Axiom \ref{eq:complement}:
+    Just applying \eqref{eq:altintersection} directly and using the fact that
+    $\FF_1$ and $\FF_2$ is sigma algebras.
+    \begin{equation}
+        A \in \FF_1 \cap \FF_2 \Leftrightarrow A \in \FF_1, \FF_2 \Rightarrow
+        A^c \in \FF_1, \FF_2 \Leftrightarrow A^c \in \FF_1 \cap \FF_2
+    \end{equation}
+
+    Axiom \ref{eq:union}:
+    Just applying \eqref{eq:altintersection} directly and using the fact that
+    $\FF_1$ and $\FF_2$ is sigma algebras.
+    \begin{equation}
+        A, B \in \FF_1 \cap \FF_2 \Leftrightarrow A, B \in \FF_1, \FF_2 \Rightarrow
+        A \cup B \in \FF_1, \FF_2 \Leftrightarrow A \cup B \in \FF_1 \cap \FF_2
+    \end{equation}
+
+    All sigma algebra axioms are satisfied and thus $\FF_1 \cap \FF_2$ is a
+    sigma algebra $\qed$
+%    \begin{identity}[De Morgan's rule]
+%        \label{id:demorgan}
+%        \begin{equation}
+%            \label{eq:demorgan}
+%            A \cap B = (A^c \cup B^c)^c
+%        \end{equation}
+%    \end{identity}
+
+%    TODO introduce $\FF$ is this on the right level? corner casees? compare to
+%    the general case %\Cap_cA_c (book?)
+%    \begin{equation}
+%        A, B \in \AA \stackrel{\eqref{eq:complement}}{\Longrightarrow}
+%        A^c, B^c \in \AA \stackrel{\eqref{eq:union}}{\Longrightarrow}
+%        (A^c \cup B^c) \in \AA \stackrel{\eqref{eq:demorgan}}{\Longrightarrow}
+%        (A \cap B)^c \in \AA \stackrel{\eqref{eq:complement}}{\Longrightarrow}
+%        A \cap B \in \AA \qed
+%    \end{equation}
 
 %    definition of algebra 1.3.1 (what is "sigma"?)
 %    De morgan, "closure under union" and that A^c\in A
