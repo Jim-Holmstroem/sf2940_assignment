@@ -251,8 +251,31 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
                 \sum\limits_{k'=1}^\infty \frac{1}{2\cdot2^k} = \frac{2}{2} = 1
                 \qed
             \end{equation}
-        \item
-        \item
+        \item Simple pattern matching on tabulated p.m.f. for
+            $\distr{Ge}{\frac{1}{2}}$ on \eqref{eq:fX}
+            \begin{equation}
+                \frac{1}{2^{k+1}} =
+                \evaluatedat{p(1-p)^k}{p=\frac{1}{2}} =
+                \evaluatedat{\distr{Ge}{p}}{p=\frac{1}{2}} =
+                \distr{Ge}{\frac{1}{2}}(k) \qed
+            \end{equation}
+        \item Simple pattern matching on tabulated p.m.f. for
+            $\distr{Exp}{\frac{1}{\lambda}}$ on \eqref{eq:fY}
+            \begin{equation}
+                \lambda e^{-\lambda y} =
+                \evaluatedat{
+                    \frac{
+                        e^{-x/a}
+                    }{
+                        a
+                    }
+                }{
+                    a=\frac{1}{\lambda}
+                } =
+                \evaluatedat{\distr{Exp}{a}(x)}{a=\frac{1}{\lambda}} =
+                \distr{Exp}{\frac{1}{\lambda}}(k) \qed
+            \end{equation}
+
         \item
         \item
         \item
