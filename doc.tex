@@ -436,9 +436,9 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 %        print(CovXY) # -1/8
 %    \end{lstlisting}
 
-    From the definition of \CoVariance  (and using the $q = 1-p$)
+    From the definition of \CoVariance  (and the trick using the $q = 1-p$)
     \begin{align}
-        \CoVariance(P, Y) & \eqdef 
+        \CoVariance(P, Y) & \eqdef
             \int\sum (k - \Expected[Y])(p - \Expected[P]) p_{YP}(y, p)%\frac{18\cdot3p^2}{(k+3)(k+2)(k+1)k}
             \nonumber \\& =
             \int\sum (k - \Expected[Y])(p - \Expected[P]) p_{Y|P}(y, p)f_p(p)%\frac{18\cdot3p^2}{(k+3)(k+2)(k+1)k}
@@ -544,6 +544,26 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     \begin{equation}
         g_{\distr{Fs}{p}}(t) = \sum\limits_{k=1}^\infty t^kp(1-p)^{k-1} =
         tp\sum\limits_{k=0}^\infty (t(1-p))^k = \frac{tp}{1-t(1-p)}
+    \end{equation}
+
+    From tabulation
+    \begin{equation}
+        \varphi_{\distr{La}{a}}(t) = \frac{1}{1+a^2t^2}
+    \end{equation}
+    \begin{equation}
+        \varphi_{\sqrt{p}S_{N_p}} =
+        g_{\distr{Fs}{p}}(\varphi_{\distr{La}{a}}(\sqrt{p}t))
+    \end{equation}
+    becomes a mess I couldn't untangle..
+
+    but it should (and most if the answer is correct) by uniqueness theorem
+    unfold to be
+    \begin{equation}
+        \varphi_{\sqrt{p}S_{N_p}} = \varphi_{\distr{La}{a}}(t)
+    \end{equation}
+    and thereby having
+    \begin{equation}
+        $\sqrt{p}S_{N_p}\in\distr{$L$}{a}$.
     \end{equation}
 
     %problem book3.8.21
