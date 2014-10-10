@@ -213,21 +213,44 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     First note that events with $0$ probability is dealt with via using certain domains
     when integrating and such, trivial to perform and trivial to append it back on but left out for
     brevity.\\
-    Using the inverse of the Taylor expansion for $e^{(.)}$ for $k$ as a
+    Using the inverse series expansion of $e^{(.)}$ for $k$ as a
     function of $\lambda y$ we get the marginalized distribution
     \begin{equation}
-        \label{eq:firstsum}
+        \label{eq:fY}
         f_Y(y) = \sum\limits_{k=0}^\infty
             \lambda \frac{(\lambda y)^k}{k!}e^{-2\lambda y} =
             \lambda e^{-\lambda y}
     \end{equation}
-    \begin{equation}
-        f_X(x) = \int\limits_{y=0}^\infty
-            \lambda \frac{(\lambda y)^k}{k!}e^{-2\lambda y} =
-    \end{equation}
+
+    Using Beta 7.5.40 with $\left\{a=2y, n=k\right\}$ we get
+    \begin{align}
+        \label{eq:fX}
+        f_X(k) &= \int\limits_{y=-\infty}^\infty
+            \lambda \frac{(\lambda y)^k}{k!}e^{-2\lambda y} \nonumber \\ &=
+            \frac{\lambda^{k+1}}{k!} \int\limits_{y=0}^\infty y^k e^{-2\lambda
+            y} \nonumber \\ &=
+            \frac{\lambda^{k+1}}{k!} \left(\frac{k!}{(2\lambda)^{k+1}}\right)\nonumber \\ &=
+            \frac{1}{2^{k+1}}
+    \end{align}
     \begin{enumerate}
         % TODO show (c) and (d) and since those are distributions (a) follows
-        \item
+        \item To show that the order of integration/summation doesn't matter we can
+            simply compute their values and see that they are the same and $=1$.
+
+            Using Beta 7.5.40 with $\left\{a=\lambda, n=0\right\}$ we get
+            \begin{equation}
+                \int\limits_{y=0}^\infty f_Y(y) = \int\limits_{y=0}^\infty
+                \lambda e^{-\lambda y}= \frac{\lambda}{\lambda^{0+1}}
+                = 1
+            \end{equation}
+
+            Using geometric series for $\sum\frac{1}{1-x}$ with $x=\frac{1}{2}, |\frac{1}{2}|<1$
+            \begin{equation}
+                \sum\limits_{k=0}^\infty f_X(k) =
+                \sum\limits_{k=0}^\infty \frac{1}{2^{k+1}} =
+                \sum\limits_{k'=1}^\infty \frac{1}{2\cdot2^k} = \frac{2}{2} = 1
+                \qed
+            \end{equation}
         \item
         \item
         \item
