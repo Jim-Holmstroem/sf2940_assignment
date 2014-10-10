@@ -251,6 +251,29 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
                 \sum\limits_{k'=1}^\infty \frac{1}{2\cdot2^k} = \frac{2}{2} = 1
                 \qed
             \end{equation}
+
+        \item Using the same integration rules from Beta as before and Beta
+            8.6.4 for the last sum
+
+            \begin{align}
+                \Expected[XY] & =
+                \sum\limits_{k=0}^\infty \int\limits_0^\infty kyf_{X,Y}(k,y)dy
+                \nonumber \\ & =
+                \sum\frac{\lambda^{k+1}k^2}{k!} \int y^{k+1} e^{-(2\lambda)y}
+                \nonumber \\ & =
+                \sum\frac{\lambda^{k+1}k^2}{k!}
+                \left(\frac{(k+1)!}{(2\lambda)^{k+2}}\right)
+                \nonumber \\ & =
+                \sum\frac{k^2\lambda^{k+1}}{(2\lambda)^{k+2}}
+                \nonumber \\ & =
+                \frac{1}{\lambda}\sum\frac{k^2}{2^{k+2}}
+                \nonumber \\ & =
+                \frac{1}{4\lambda}\sum\limits_{k=1}^\infty \frac{k^2}{2^k}
+                \nonumber \\ & =
+                \frac{1}{4\lambda}\left(1-1/2\right)^{-3}(1/2+1/2)
+                \nonumber \\ & = \frac{2}{\lambda} \qed
+            \end{align}
+
         \item Simple pattern matching on tabulated p.m.f. for
             $\distr{Ge}{\frac{1}{2}}$ on \eqref{eq:fX}
             \begin{equation}
@@ -259,6 +282,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
                 \evaluatedat{\distr{Ge}{p}}{p=\frac{1}{2}} =
                 \distr{Ge}{\frac{1}{2}}(k) \qed
             \end{equation}
+
         \item Simple pattern matching on tabulated p.m.f. for
             $\distr{Exp}{\frac{1}{\lambda}}$ on \eqref{eq:fY}
             \begin{equation}
@@ -276,10 +300,49 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
                 \distr{Exp}{\frac{1}{\lambda}}(k) \qed
             \end{equation}
 
+        \item From tabulation we have
+            \begin{equation}
+                \label{eq:podef}
+                p_{\distr{Po}{\lambda y}}(k) = e^{-\lambda y} \frac{(\lambda
+                y)^k}{k!}
+            \end{equation}
+
+            From the definition of conditional we have
+            \begin{equation}
+                p_{XY} = p_{\conditional{X}{Y}}p_{Y}
+            \end{equation}
+            This gives us when putting in the p.m.f.'s
+            \begin{equation}
+                p_{\conditional{X}{Y}} =
+                \frac{p_{XY}}{p_{Y}} =
+                \frac{
+                    \lambda \frac{
+                        (\lambda y)^ke^{-2\lambda y}
+                    }{
+                        k!
+                    }
+                }{
+                    \lambda e^{-\lambda y}
+                } =
+                \frac{
+                    (\lambda y)^k e^{-\lambda y}
+                }{
+                    k!
+                } = e^{-\lambda y} \frac{(\lambda
+                    y)^k}{k!} = 
+                    p_{
+                    \distr{Po}{\lambda y}}(k) 
+            \end{equation}
+
+            And since we have that distributions are equal we have that
+            \begin{equation}
+                \conditional{X}{Y=y} \in \distr{Po}{\lambda y} \qed
+            \end{equation}
+
         \item
+
         \item
-        \item
-        \item
+
     \end{enumerate}
     %(a) %brute force from c/d ? discuss the difftrans sumint=intsum (when it's
         %valid that is)
