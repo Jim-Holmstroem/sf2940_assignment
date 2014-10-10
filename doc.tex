@@ -371,7 +371,6 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 
 \end{exercise}
 
-
 \begin{solution}
     \begin{align}
         \gprob{Y}{k} &= \int\limits_{p=0}^1 \gprob{Y|P=p}{k} df_P(p) =
@@ -437,7 +436,7 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
 %        print(CovXY) # -1/8
 %    \end{lstlisting}
 
-    From the definition of \CoVariance
+    From the definition of \CoVariance  (and using the $q = 1-p$)
     \begin{align}
         \CoVariance(P, Y) & \eqdef 
             \int\sum (k - \Expected[Y])(p - \Expected[P]) p_{YP}(y, p)%\frac{18\cdot3p^2}{(k+3)(k+2)(k+1)k}
@@ -534,6 +533,19 @@ titlepage=false,headings=small,parskip=half,version=last]{scrartcl}
     Show that $\sqrt{p}S_{N_p}\in\distr{$L$}{a}$.
 \end{exercise}
 \begin{solution}
+    \begin{equation}
+        \varphi_{\sqrt{p}S_{N_p}}(t) = \varphi_{S_{N_p}}(\sqrt{p}t)
+    \end{equation}
+    \begin{equation}
+        \varphi_{S_{N_p}} = g_{\distr{Fs}{p}}(\varphi_{\distr{La}{a}}(t))
+    \end{equation}
+    From definition of generating function and using geometric series
+    ($|t(1-p)|<1\Rightarrow |t|<1$)
+    \begin{equation}
+        g_{\distr{Fs}{p}}(t) = \sum\limits_{k=1}^\infty t^kp(1-p)^{k-1} =
+        tp\sum\limits_{k=0}^\infty (t(1-p))^k = \frac{tp}{1-t(1-p)}
+    \end{equation}
+
     %problem book3.8.21
 \end{solution}
 \pagebreak
